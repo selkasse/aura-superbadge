@@ -1,0 +1,22 @@
+<aura:component >
+    
+    <!-- attributes -->
+    <!-- testing to see if this works -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="zoomLevel" type="Integer" />    
+    <aura:attribute name="width"  type="String" default="100%" />
+    <aura:attribute name="height" type="String" default="80px" />
+
+    <!-- Your handler goes here-->    
+    
+    <div style="{!'width: ' + v.width + '; height: ' + v.height}">
+        <lightning:card title="Current Boat Location" class="slds-m-top_none">
+            <aura:renderIf isTrue="{!not(empty(v.mapMarkers))}">
+                <!-- the map component goes here -->    
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!empty(v.mapMarkers)}">
+                <div style="width:100%; height:100%" class="slds-align_absolute-center">Please make a selection</div>
+            </aura:renderIf>
+        </lightning:card>
+    </div>
+</aura:component>
