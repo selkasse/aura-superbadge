@@ -1,3 +1,12 @@
-<aura:component>
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+  controller="BoatSearchResults"
+>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <aura:attribute name="boats" type="Boat__c[]" />
 
-</aura:component>	
+  <aura:iteration items="{!v.boats}" var="boat">
+    <c:BoatTile boat="{!boat}" />
+  </aura:iteration>
+</aura:component>
