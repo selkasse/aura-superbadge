@@ -3,10 +3,17 @@
   access="global"
   controller="BoatSearchResults"
 >
+  <aura:attribute name="boatType" type="BoatType__c" />
+
+  <!-- register formSubmitEvent in BoatSearchForm  -->
+  <!-- handle formSubmitEvent here -->
+
+  <!-- create attribute here named boatTypeId, and set it in the handler function -->
+  <!-- pass the boatTypeId attribute to BoatSearchResults, the same way you passed it to BoatTile -->
   <lightning:card title="Find a Boat">
-    <c:BoatSearchForm />
+    <c:BoatSearchForm boatType="{!v.boatType}" />
   </lightning:card>
   <lightning:card title="Matching Boats">
-    <c:BoatSearchResults />
+    <c:BoatSearchResults boatType="{!v.boatType}" />
   </lightning:card>
 </aura:component>

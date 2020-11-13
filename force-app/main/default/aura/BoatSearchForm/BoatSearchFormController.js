@@ -42,5 +42,18 @@
       createRecordEvent.setParams(params);
       createRecordEvent.fire();
     }
+  },
+  clickSearch: function (component, event, helper) {
+    // let searchEvent = component.getEvent("searchClicked");
+    var searchEvent = $A.get("e.c:formSubmitEvent");
+    // clearEvent.fire();
+    let boatType = component.get("v.boatType");
+    if (!boatType) {
+      boatType = "";
+    } else {
+      boatType = boatType.toString();
+    }
+    searchEvent.setParams({ boatTypeId: boatType });
+    searchEvent.fire();
   }
 });

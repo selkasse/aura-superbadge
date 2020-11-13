@@ -7,6 +7,7 @@
   <aura:attribute name="boatType" type="BoatType__c" />
   <aura:attribute name="showNewButton" type="Boolean" />
   <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <aura:registerEvent name="searchClicked" type="c:formSubmitEvent" />
 
   <lightning:layout horizontalAlign="center" verticalAlign="center">
     <lightning:layoutItem size="2" class="slds-p-right_xx-small">
@@ -31,6 +32,7 @@
         variant="Brand"
         label="Search"
         title="Search"
+        onclick="{!c.clickSearch}"
       />
     </lightning:layoutItem>
     <aura:if isTrue="{!v.showNewButton}">

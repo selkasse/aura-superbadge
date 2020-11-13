@@ -13,5 +13,8 @@
     });
     // Send action off to be executed
     $A.enqueueAction(action);
+  },
+  handleSearchClicked: function (component, event, helper) {
+    helper.onSearch(component, event);
   }
 });

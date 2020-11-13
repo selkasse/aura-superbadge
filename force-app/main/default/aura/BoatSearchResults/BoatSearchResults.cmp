@@ -5,6 +5,10 @@
 >
   <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
   <aura:attribute name="boats" type="Boat__c[]" />
+  <aura:attribute name="boatType" type="BoatType__c" />
+  <aura:attribute name="noBoatsFound" type="Boolean" />
+  <aura:handler event="c:formSubmitEvent" action="{!c.handleSearchClicked}" />
+
   <lightning:layout multipleRows="true">
     <aura:iteration items="{!v.boats}" var="boat">
       <lightning:layoutItem
@@ -16,4 +20,9 @@
       </lightning:layoutItem>
     </aura:iteration>
   </lightning:layout>
+  <aura:if isTrue="{!v.noBoatsFound}">
+    <div class="slds-align_absolute-center" style="height: 5rem">
+      No boats found
+    </div>
+  </aura:if>
 </aura:component>
