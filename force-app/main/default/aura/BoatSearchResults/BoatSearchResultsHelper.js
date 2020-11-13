@@ -1,6 +1,6 @@
 ({
-  onSearch: function (component, event) {
-    let boatType = event.getParam("boatTypeId");
+  onSearch: function (component) {
+    let boatType = component.get("v.boatTypeId");
 
     var action = component.get("c.getBoats");
 

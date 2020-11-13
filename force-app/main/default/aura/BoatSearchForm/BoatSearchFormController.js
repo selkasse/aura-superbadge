@@ -43,17 +43,14 @@
       createRecordEvent.fire();
     }
   },
-  clickSearch: function (component, event, helper) {
-    // let searchEvent = component.getEvent("searchClicked");
-    var searchEvent = $A.get("e.c:formSubmitEvent");
-    // clearEvent.fire();
+  onFormSubmit: function (component, event, helper) {
+    let searchEvent = component.getEvent("formsubmit");
     let boatType = component.get("v.boatType");
-    if (!boatType) {
-      boatType = "";
-    } else {
-      boatType = boatType.toString();
-    }
-    searchEvent.setParams({ boatTypeId: boatType });
+
+    searchEvent.setParams({
+      formData: { boatTypeId: boatType }
+    });
+
     searchEvent.fire();
   }
 });

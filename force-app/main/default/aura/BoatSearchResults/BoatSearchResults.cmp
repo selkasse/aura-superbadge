@@ -5,9 +5,12 @@
 >
   <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
   <aura:attribute name="boats" type="Boat__c[]" />
-  <aura:attribute name="boatType" type="BoatType__c" />
+  <aura:attribute name="boatTypeId" type="String" default="" />
   <aura:attribute name="noBoatsFound" type="Boolean" />
-  <aura:handler event="c:formSubmitEvent" action="{!c.handleSearchClicked}" />
+
+  <aura:method name="search" action="{!c.doSearch}">
+    <aura:attribute name="boatTypeId" type="String" default="" />
+  </aura:method>
 
   <lightning:layout multipleRows="true">
     <aura:iteration items="{!v.boats}" var="boat">

@@ -1,6 +1,10 @@
 ({
-  handleSearchClicked: function (component, event, helper) {
-    let boatTypeId = event.getParam("boatTypeId");
-    console.log(boatTypeId);
+  onFormSubmit: function (component, event, helper) {
+    let formData = event.getParam("formData");
+    // let boatTypeId = formData.boatTypeId;
+    let searchResultsComponent = component.find("searchResults");
+    if (searchResultsComponent) {
+      searchResultsComponent.search(formData.boatTypeId);
+    }
   }
 });

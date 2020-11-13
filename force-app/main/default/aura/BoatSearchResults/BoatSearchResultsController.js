@@ -16,5 +16,15 @@
   },
   handleSearchClicked: function (component, event, helper) {
     helper.onSearch(component, event);
+  },
+  doSearch: function (component, event, helper) {
+    console.log("in doSearch");
+    var params = event.getParam("arguments");
+
+    if (params) {
+      component.set("v.boatTypeId", params.boatTypeId);
+    }
+
+    helper.onSearch(component);
   }
 });
