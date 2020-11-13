@@ -26,5 +26,9 @@
     }
 
     helper.onSearch(component);
+  },
+  onBoatSelect: function (component, event, helper) {
+    console.log("inside onBoatSelect");
+    component.set("v.selectedBoatId", event.getParam("boatId"));
   }
 });
