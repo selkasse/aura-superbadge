@@ -6,5 +6,9 @@
     let boatId = selectedBoat.Id;
     boatClickEvent.setParams({ boatId: boatId });
     boatClickEvent.fire();
+
+    let boatSelectedEvent = $A.get("e.c:BoatSelected");
+    boatSelectedEvent.setParams({ boat: selectedBoat });
+    boatSelectedEvent.fire();
   }
 });
