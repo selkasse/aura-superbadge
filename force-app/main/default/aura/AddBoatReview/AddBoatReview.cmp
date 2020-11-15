@@ -34,6 +34,9 @@
         disabledCategories="FORMAT_FONT"
       />
     </lightning:layoutItem>
+    <lightning:layoutItem size="12" padding="around-small">
+      <c:FiveStarRating value="{!v.boatReview.Rating__c}" />
+    </lightning:layoutItem>
     <lightning:layoutItem size="12" class="slds-align--absolute-center">
       <lightning:button
         label="Submit"
