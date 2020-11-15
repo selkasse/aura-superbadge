@@ -4,8 +4,15 @@
 >
   <aura:attribute name="boat" type="Boat__c" />
   <aura:attribute name="id" type="Id" />
+  <aura:attribute name="tabId" type="String" default="boatdetailtab" />
 
   <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}" />
+  <aura:handler
+    name="boatReviewAdded"
+    event="c:BoatReviewAdded"
+    action="{!c.onBoatReviewAdded}"
+  />
+  <aura:handler name="change" value="{!v.tabId}" action="{!c.handleChange}" />
 
   <force:recordData
     aura:id="service"
@@ -17,14 +24,16 @@
   />
 
   <aura:if isTrue="{!not(empty(v.boat))}">
-    <lightning:tabset>
-      <lightning:tab label="Details">
+    <lightning:tabset aura:id="tabs" selectedTabId="{!v.tabId}">
+      <lightning:tab label="Details" id="boatdetailtab">
         <c:BoatDetail boat="{!v.boat}" />
       </lightning:tab>
-      <lightning:tab label="Reviews" title="2nd tab extended title">
-        Two Content !
+      <lightning:tab label="Reviews" id="boatreviewtab">
+        Reviews
       </lightning:tab>
-      <lightning:tab label="Add Review"> Three Content ! </lightning:tab>
+      <lightning:tab label="Add Review" id="addreviewtab">
+        <c:AddBoatReview boat="{!v.boat}" />
+      </lightning:tab>
     </lightning:tabset>
   </aura:if>
 </aura:component>
