@@ -3,7 +3,6 @@
     var navigationEvent = $A.get("e.force:navigateToSObject");
 
     if (navigationEvent) {
-      console.log("passed navigation check");
       component.set("v.showButton", true);
     }
   },
