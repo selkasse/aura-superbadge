@@ -8,7 +8,7 @@
 
   <aura:method name="refresh" action="{!c.doInit}" />
 
-  <ui:scrollerWrapper class="slds-feed">
+  <ui:scrollerWrapper class="slds-feed scrollerSize">
     <ul class="slds-feed__list">
       <aura:iteration items="{!v.boatReviews}" var="boatReview">
         <li class="slds-feed__item">

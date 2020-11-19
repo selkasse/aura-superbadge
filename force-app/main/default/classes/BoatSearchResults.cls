@@ -5,11 +5,11 @@ public with sharing class BoatSearchResults {
         try {
             if(String.isEmpty(boatTypeId)){
 
-                boats = [SELECT Id, Name, Picture__c, Contact__r.Name FROM Boat__c];
+                boats = [SELECT Id, Name, Picture__c, Contact__r.Name, Geolocation__latitude__s, Geolocation__longitude__s FROM Boat__c];
             }
             else{
 
-                boats = [SELECT Id, Name, Picture__c, BoatType__c, Contact__r.Name 
+                boats = [SELECT Id, Name, Picture__c, BoatType__c, Contact__r.Name, Geolocation__latitude__s, Geolocation__longitude__s
                 FROM Boat__c 
                 WHERE BoatType__c = :boatTypeId];
             }
